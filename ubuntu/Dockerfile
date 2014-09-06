@@ -16,11 +16,13 @@ RUN	git clone https://github.com/sstephenson/rbenv.git .rbenv
 RUN	git clone https://github.com/sstephenson/ruby-build.git .rbenv/plugins/ruby-build
 RUN	echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bashrc
 RUN	echo 'eval "$(rbenv init -)"' >> .bashrc
+RUN	chown -R homepage:homepage .rbenv
 
 ENV	HOME	/home/homepage
 ENV	PATH	$HOME/.rbenv/bin:$PATH
-RUN	rbenv install 2.1.2
-RUN	chown -R homepage:homepage .rbenv
+RUN	sudo -u homepage ~/.rbenv/bin/rbenv install 2.1.2
+RUN	sudo -u homepage ~/.rbenv/bin/rbenv global 2.1.2
+RUN	sudo -u homepage ~/.rbenv/shims/gem install bundler
 
 ENV	HOME	/root
 WORKDIR	/root
