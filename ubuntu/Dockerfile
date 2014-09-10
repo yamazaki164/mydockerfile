@@ -6,7 +6,7 @@ RUN     echo "homepage:1234qwer" | chpasswd
 
 RUN	apt-get update
 RUN	apt-get install -y supervisor openssh-server openssh-client openssh-sftp-server sudo man git-sh 
-RUN	apt-get install -y llvm-dev clang openssl libssl-dev make sqlite3 mariadb-server mariadb-client libsqlite3-dev
+RUN	apt-get install -y llvm-dev clang openssl libssl-dev make sqlite3 mariadb-server mariadb-client libsqlite3-dev libreadline-dev
 
 ADD	service.conf /etc/supervisor/conf.d/service.conf
 RUN	sed -i '/\[supervisord\]/a\nodaemon=true' /etc/supervisor/supervisord.conf
