@@ -5,8 +5,36 @@ RUN	echo "root:1234qwer" | chpasswd
 RUN	useradd $dockeruser
 RUN	echo "$dockeruser:1234qwer" | chpasswd
 
-RUN	rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-RUN	yum install -y sudo openssh-server man wget telnet openssh-clients supervisor zip unzip redis gcc gcc-c++ make zlib libyaml-devel nodejs tar openssl-devel git bzip2 patch libxml2-devel libxslt-devel sqlite-devel readline-devel bzip2-devel 
+RUN	yum install -y http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+RUN	yum install -y sudo \
+ openssh-server \
+ man \
+ wget \
+ telnet \
+ openssh-clients \
+ supervisor \
+ zip \
+ unzip \
+ redis \
+ gcc \
+ gcc-c++ \
+ make \
+ zlib \
+ libyaml-devel \
+ nodejs \
+ tar \
+ openssl-devel \
+ git \
+ bzip2 \
+ patch \
+ libxml2-devel \
+ libxslt-devel \
+ sqlite-devel \
+ readline-devel \
+ bzip2-devel \
+ crontabs \
+ unixODBC \
+ freetds
 
 RUN	cp -p /usr/share/zoneinfo/Japan /etc/localtime
 
